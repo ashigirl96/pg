@@ -12,6 +12,14 @@ export function getVideoList(): VideoType[] {
       videoId: '4RiiI92qGWA',
     },
     {
+      videoId: 'jtuGG35ofgw',
+    },
+    {
+      videoId: 'am9_BDCyjLU',
+      start: timeToSeconds({ minutes: 49, seconds: 10 }),
+      end: timeToSeconds({ minutes: 51, seconds: 38 }),
+    },
+    {
       start: timeToSeconds({ minutes: 14, seconds: 10 }),
       end: timeToSeconds({ minutes: 16, seconds: 55 }),
       videoId: 'N84DT6HFYAg',

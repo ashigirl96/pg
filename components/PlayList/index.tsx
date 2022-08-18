@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { Video } from '../Video'
+import dynamic from 'next/dynamic'
+
+const Video = dynamic(() => import('../Video'), { ssr: false })
 
 export function PlayList() {
   const [playAt, setPlayAt] = useState(0)

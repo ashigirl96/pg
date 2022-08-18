@@ -4,15 +4,17 @@ import { useVideo, UseVideoOptions } from './useVideo'
 
 type VideoProps = UseVideoOptions
 
-export const Video: React.FC<VideoProps> = ({ playAt, setPlayAt }) => {
-  const { videoId, opts, onEnd } = useVideo({ playAt, setPlayAt })
+const Video: React.FC<VideoProps> = ({ playAt, setPlayAt }) => {
+  const { videoId, opts, handleStateChange } = useVideo({ playAt, setPlayAt })
 
   return (
     <YouTube
       className="flex justify-center h-full"
       videoId={videoId}
       opts={opts}
-      onEnd={onEnd}
+      onStateChange={handleStateChange}
     />
   )
 }
+
+export default Video

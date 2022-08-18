@@ -1,5 +1,5 @@
 export interface VideoType {
-  start: number | null
-  end: number | null
+  start?: number
+  end?: number
   videoId: string
 }

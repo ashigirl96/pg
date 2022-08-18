@@ -1,16 +1,17 @@
 import { VideoType } from './videoType'
+import { timeToSeconds } from './time'
 
 export function getVideoList(): VideoType[] {
   return [
     {
-      start: 10,
-      end: 20,
-      videoId: 'doKKixu__hQ',
+      start: null,
+      end: timeToSeconds({ minutes: 0, seconds: 2 }),
+      videoId: '4RiiI92qGWA',
     },
     {
-      start: 20,
-      end: 30,
-      videoId: '4RiiI92qGWA',
+      start: null,
+      end: 3,
+      videoId: 'lYJQegOFPGo',
     },
   ]
 }

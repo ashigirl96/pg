@@ -1,11 +1,11 @@
 import type { NextPage } from 'next'
-import { Tube } from '../components/tube'
+import { PlayList } from '../components/PlayList'
 
 const Index: NextPage = () => {
   return (
     <div>
       <h1>Youtube</h1>
-      <Tube />
+      <PlayList />
     </div>
   )
 }

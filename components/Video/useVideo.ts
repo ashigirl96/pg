@@ -11,11 +11,10 @@ export type UseVideoOptions = {
 export function useVideo({ playAt, setPlayAt }: UseVideoOptions) {
   const videoList = useMemo(() => getVideoList(), [])
   const onEnd = useCallback(
-    // async (_event: YouTubeEvent<unknown>) => {
+    // async (event: YouTubeEvent<unknown>) => {
     async () => {
       const isLastVideo = playAt === videoList.length - 1
       if (isLastVideo) {
-        // await event.target.pauseVideo()
         setPlayAt(0)
         return
       }
@@ -24,19 +23,17 @@ export function useVideo({ playAt, setPlayAt }: UseVideoOptions) {
     [playAt, setPlayAt, videoList],
   )
   const videoPlayInfo = useMemo(() => videoList[playAt], [playAt, videoList])
-  const opts = useMemo<YouTubeProps['opts']>(
-    () => ({
-      height: '390',
-      width: '640',
-      playerVars: {
-        // https://developers.google.com/youtube/player_parameters
-        autoplay: 1,
-        start: videoPlayInfo.start,
-        end: videoPlayInfo.end,
-      },
-    }),
-    [videoPlayInfo],
-  )
+  const opts: YouTubeProps['opts'] = {
+    height: '390',
+    width: '640',
+    playerVars: {
+      autoplay: 1,
+    },
+  }
+  const { start, end } = videoPlayInfo
+  // FIXME: start = 0にすると長時間動画の場合、途中で再生されてしまう
+  start ? (opts.playerVars!.start = start) : (opts.playerVars!.start = 1)
+  end ? (opts.playerVars!.end = end) : (opts.playerVars!.end = undefined)
   const videoId = videoPlayInfo.videoId
 
   return {

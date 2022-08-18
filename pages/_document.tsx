@@ -35,6 +35,7 @@ export default class Document extends NextDocument {
             content="/favicons/browserconfig.xml"
           />
           <meta name="theme-color" content="#ffffff" />
+          <title>ぽこピーソング</title>
         </Head>
         <body>
           <Main />

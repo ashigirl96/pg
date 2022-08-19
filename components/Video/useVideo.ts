@@ -1,7 +1,7 @@
 import { getVideoList } from '../../utility/localStorage'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { YouTubeEvent, YouTubeProps } from 'react-youtube'
-import { getPlayerStateName, PLAYER_STATES } from '../../utility/player_states'
+import { getPlayerStateKey } from '../../utility/player_states'
 
 export type UseVideoOptions = {
   playAt: number
@@ -34,12 +34,24 @@ export function useVideo({ playAt, playNextVideo }: UseVideoOptions) {
   const handleStateChange = useCallback(
     async (event: YouTubeEvent<unknown>) => {
       const state = await event.target.getPlayerState()
-      console.log(`state ${getPlayerStateName(state)}`)
-      if (state === PLAYER_STATES.ENDED) {
-        playNextVideo()
+      console.log(`state ${getPlayerStateKey(state)}`)
+      switch (getPlayerStateKey(state)) {
+        case 'BUFFERING':
+          break
+        case 'PAUSED':
+          break
+        case 'VIDEO_CUED':
+          break
+        case 'UN_STARTED':
+          break
+        case 'ENDED':
+          playNextVideo()
+          break
+        case 'PLAYING':
+          break
       }
     },
-    [playNextVideo, videoList.length],
+    [playNextVideo],
   )
 
   return {

@@ -9,9 +9,10 @@ export const PLAYER_STATES = {
 
 type valueof<T> = T[keyof T]
 
-type PlayerState = valueof<typeof PLAYER_STATES>
+type PlayerStateKey = keyof typeof PLAYER_STATES
+type PlayerStateValue = valueof<typeof PLAYER_STATES>
 
-export function getPlayerStateName(state: PlayerState) {
+export function getPlayerStateKey(state: PlayerStateValue): PlayerStateKey {
   const index = Object.values(PLAYER_STATES).indexOf(state)
-  return Object.keys(PLAYER_STATES)[index]
+  return <PlayerStateKey>Object.keys(PLAYER_STATES)[index]
 }

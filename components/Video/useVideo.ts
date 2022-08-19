@@ -1,16 +1,14 @@
 import { getVideoList } from '../../utility/localStorage'
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { YouTubeEvent, YouTubeProps } from 'react-youtube'
 import { getPlayerStateName, PLAYER_STATES } from '../../utility/player_states'
 
-type SetPlayAt = React.Dispatch<React.SetStateAction<number>>
-
 export type UseVideoOptions = {
   playAt: number
-  setPlayAt: SetPlayAt
+  playNextVideo: () => void
 }
 
-export function useVideo({ playAt, setPlayAt }: UseVideoOptions) {
+export function useVideo({ playAt, playNextVideo }: UseVideoOptions) {
   const videoList = useMemo(() => getVideoList(), [])
   const [opts, setOpts] = useState<YouTubeProps['opts']>(undefined)
   const [videoId, setVideoId] = useState('')
@@ -18,8 +16,8 @@ export function useVideo({ playAt, setPlayAt }: UseVideoOptions) {
     const videoPlayInfo = videoList[playAt]
     const { start, end, videoId: _videoId } = videoPlayInfo
     setOpts({
-      height: '390',
-      width: '640',
+      height: '480',
+      width: '720',
       playerVars: {
         fs: 0,
         disablekb: 1,
@@ -38,10 +36,10 @@ export function useVideo({ playAt, setPlayAt }: UseVideoOptions) {
       const state = await event.target.getPlayerState()
       console.log(`state ${getPlayerStateName(state)}`)
       if (state === PLAYER_STATES.ENDED) {
-        setPlayAt((at) => (at + 1) % videoList.length)
+        playNextVideo()
       }
     },
-    [setPlayAt, videoList.length],
+    [playNextVideo, videoList.length],
   )
 
   return {

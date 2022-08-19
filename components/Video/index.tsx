@@ -4,8 +4,11 @@ import { useVideo, UseVideoOptions } from './useVideo'
 
 type VideoProps = UseVideoOptions
 
-const Video: React.FC<VideoProps> = ({ playAt, setPlayAt }) => {
-  const { videoId, opts, handleStateChange } = useVideo({ playAt, setPlayAt })
+const Video: React.FC<VideoProps> = ({ playAt, playNextVideo }) => {
+  const { videoId, opts, handleStateChange } = useVideo({
+    playAt,
+    playNextVideo,
+  })
 
   return (
     <YouTube

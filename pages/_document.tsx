@@ -37,7 +37,7 @@ export default class Document extends NextDocument {
           <meta name="theme-color" content="#ffffff" />
           <title>ぽこピーソング</title>
         </Head>
-        <body>
+        <body className="bg-peanuts">
           <Main />
           <NextScript />
         </body>

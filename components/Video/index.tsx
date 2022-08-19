@@ -1,6 +1,7 @@
 import React from 'react'
 import YouTube from 'react-youtube'
 import { useVideo, UseVideoOptions } from './useVideo'
+import { useFetchThumbnail } from '../../utility/fetchThumbnail'
 
 type VideoProps = UseVideoOptions
 
@@ -9,6 +10,8 @@ const Video: React.FC<VideoProps> = ({ playAt, playNextVideo }) => {
     playAt,
     playNextVideo,
   })
+  const { thumbnail } = useFetchThumbnail(videoId)
+  console.log(thumbnail)
 
   return (
     <YouTube

@@ -5,6 +5,10 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    colors: {
+      pyellow: '#FCF150',
+      peanuts: '#F6E35D',
+    },
     extend: {},
   },
   plugins: [],

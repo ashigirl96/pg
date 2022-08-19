@@ -16,8 +16,7 @@ export function useVideo({ playAt, playNextVideo }: UseVideoOptions) {
     const videoPlayInfo = videoList[playAt]
     const { start, end, videoId: _videoId } = videoPlayInfo
     setOpts({
-      height: '480',
-      width: '720',
+      width: 720,
       playerVars: {
         fs: 0,
         disablekb: 1,

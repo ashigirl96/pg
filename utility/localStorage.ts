@@ -15,6 +15,9 @@ export function getVideoList(): VideoType[] {
       videoId: 'jtuGG35ofgw',
     },
     {
+      videoId: 'FwPOR-NG18s',
+    },
+    {
       videoId: 'am9_BDCyjLU',
       start: timeToSeconds({ minutes: 49, seconds: 10 }),
       end: timeToSeconds({ minutes: 51, seconds: 38 }),

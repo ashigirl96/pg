@@ -21,6 +21,9 @@ export function useVideo({ playAt, setPlayAt }: UseVideoOptions) {
       height: '390',
       width: '640',
       playerVars: {
+        fs: 0,
+        disablekb: 1,
+        controls: 0,
         autoplay: 1,
         start: start ?? 1, // 0sだと開始しないので、最小値を1sにする
         end,

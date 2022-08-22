@@ -13,7 +13,7 @@ const Video: React.FC<VideoProps> = ({ playAt, playNextVideo }) => {
   return (
     <div className="relative">
       <YouTube
-        className="flex justify-center h-full absolute top-10 left-10"
+        className="flex justify-center h-full absolute top-10 left-10 hidden"
         videoId={videoId}
         opts={opts}
         onStateChange={handleStateChange}

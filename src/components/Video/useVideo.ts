@@ -47,7 +47,6 @@ export function useVideo({ playAt, playNextVideo }: UseVideoOptions) {
           playNextVideo()
           break
         case 'PLAYING':
-          event.target.mute()
           break
       }
     },

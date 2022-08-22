@@ -5,7 +5,6 @@ import { useSetRecoilState, useRecoilValue } from 'recoil'
 import { videoTermState, videoReadyEventState } from '@/atoms/player'
 
 const Index: NextPage = () => {
-  console.log('Index')
   const setVideoTerm = useSetRecoilState(videoTermState)
   const videoEvent = useRecoilValue(videoReadyEventState)
 
@@ -18,7 +17,7 @@ const Index: NextPage = () => {
     <div className="w-screen h-screen bg-peanuts1">
       <h1>Youtube</h1>
       <button onClick={() => videoEvent.playVideo()}>play</button>
-      <button onClick={() => videoEvent.stopVideo()}>stop</button>
+      <button onClick={() => videoEvent.pauseVideo()}>stop</button>
     </div>
   )
 }

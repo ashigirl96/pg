@@ -7,7 +7,6 @@ function YoutubePlayer() {
 
   return (
     <YouTube
-      className="hidden"
       videoId={videoId}
       opts={opts}
       onStateChange={handleStateChange}

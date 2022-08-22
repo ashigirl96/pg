@@ -9,7 +9,6 @@ const YoutubePlayer = dynamic(() => import('@/layers/YoutubePlayer'), {
 })
 
 function MyApp({ Component, pageProps }: AppProps) {
-  console.log('MyApp')
   return (
     <>
       <Header />

@@ -43,7 +43,6 @@ export function useYoutubePlayer() {
 
   const handleReady = useCallback(
     (event: YouTubeEvent<unknown>) => {
-      console.log(`onReady ${event.target}`)
       setReadyEvent(event.target)
     },
     [setReadyEvent],

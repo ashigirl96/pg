@@ -8,7 +8,7 @@ export function PlayList() {
   const { playAt, playPreviousVideo, playNextVideo } = useNextVideo()
 
   return (
-    <div className="w-[100vw] h-[100vh]">
+    <div>
       <button onClick={() => playPreviousVideo()}>previous</button>
       <button onClick={() => playNextVideo()}>next</button>
       <Video playAt={playAt} playNextVideo={playNextVideo} />

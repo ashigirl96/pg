@@ -6,8 +6,8 @@ module.exports = {
   ],
   theme: {
     colors: {
-      pyellow: '#FCF150',
-      peanuts: '#F6E35D',
+      peanuts1: '#FDF100',
+      peanuts2: '#998100',
     },
     extend: {},
   },

@@ -3,7 +3,7 @@ import { PlayList } from '../components/PlayList'
 
 const Index: NextPage = () => {
   return (
-    <div>
+    <div className="w-screen h-screen bg-peanuts1">
       <h1>Youtube</h1>
       <PlayList />
     </div>
